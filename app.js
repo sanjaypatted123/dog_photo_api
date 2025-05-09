@@ -11,6 +11,13 @@ fetch('https://dog.ceo/api/breeds/list/all')
 
     console.log(`selected breed:${randombreed}`);
 
+    return fetch(`https://dog.ceo/api/breed/${randombreed}/images/random`)
+    .then(response=>response.json())
+    .then(imageData=>{
+        document.getElementById('breed-name').textContent=`Breed :${randombreed}`;
+        document.getElementById('photo').src=imageData.message
+    });
+
 
 
 })
